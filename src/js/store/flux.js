@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				if (response.status == "200") {
 					const body = await response.json();
-					console.log("we are printing body", body);
+					//console.log("we are printing body", body);
 					setStore({
 						planets: body.results
 					});
@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				if (response.status == "200") {
 					const body = await response.json();
-					console.log("we are printing body", body);
+					//console.log("we are printing body", body);
 					setStore({
 						people: body.results
 					});
