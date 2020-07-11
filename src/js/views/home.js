@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
@@ -8,6 +8,7 @@ function convertPeopleIntoHTML(people) {
 	//<p key={planet.name}>{planet.name}</p>;
 	//let data = people;
 	//console.log(data);
+
 	return (
 		<div className="card">
 			<div className="card-body">
@@ -20,7 +21,7 @@ function convertPeopleIntoHTML(people) {
 				</p>
 				<div className="d-flex justify-content-between">
 					<Link to={"./people/" + btoa(people.url)}>
-						<div className="btn btn-primary" type="button" id={people.url} onClick={e => alert(people)}>
+						<div className="btn btn-primary" type="button" id={people.url}>
 							Learn More
 						</div>
 					</Link>
@@ -60,6 +61,7 @@ export const Home = () => {
 	}, []);
 
 	const { actions, store } = useContext(Context);
+	const [favorite, setFavorite] = useState(null);
 	return (
 		<div className="text-center mt-5">
 			{store.planets.length == 0 ? /*<p>No planets</p>*/ "" : ""}

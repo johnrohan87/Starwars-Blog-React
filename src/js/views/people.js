@@ -8,11 +8,11 @@ import { useParams } from "react-router-dom";
 export const People = props => {
 	const { actions, store } = useContext(Context);
 	const { urlHash } = useParams();
-	const currentPeron = store.people.find(p => btoa(p.url) == urlHash);
+	const currentPerson = store.people.find(p => btoa(p.url) == urlHash);
 	//console.log(props);
 	//console.log(urlHash);
-	if (typeof currentPeron == "undefined") return "Loading";
-	return <div>Hello {currentPeron.name}</div>;
+	if (typeof currentPerson == "undefined") return "Loading";
+	return <div>Hello {currentPerson.name}</div>;
 };
 People.propTypes = {
 	history: PropTypes.any
