@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Favorite } from "./favorite";
 
 export const Card = ({ data }) => {
+	const [select, setSelected] = useState(false);
 	return (
 		<div className="card">
 			<div className="card-body">

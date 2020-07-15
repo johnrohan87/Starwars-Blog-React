@@ -63,16 +63,19 @@ export const Home = () => {
 	}, []);
 
 	const { actions, store } = useContext(Context);
-	const [favorite, setFavorite] = useState(null);
+	const [favoriteList, setFavoriteList] = useState(null);
 	return (
 		<div className="text-center mt-5">
 			{store.planets.length == 0 ? /*<p>No planets</p>*/ "" : ""}
 			<div className="w-100 people">
 				{store.planets.length == 0 ? "" : <h1 className="d-flex text-danger p4">Characters</h1>}
 				<div className="d-inline-flex">
-					{store.people.map((event, index) => (
-						<Card key={index} data={event} />
-					))}
+					{store.people.map((event, index) => {
+						return (
+							//console.log("index = " + index);
+							<Card key={index} data={event} />
+						);
+					})}
 				</div>
 			</div>
 			<div className="w-100 planets">

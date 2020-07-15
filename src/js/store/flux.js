@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			planets: [],
 			people: [],
+			favorite: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -17,6 +18,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			addToFavorite: name => {
+				//const tmpStore = store.favorite;
+				const store = getStore();
+				setStore({ favorite: [...store.favorite, name] });
+			},
+
 			getPlanets: async () => {
 				const response = await fetch("https://swapi.dev/api/planets/");
 
