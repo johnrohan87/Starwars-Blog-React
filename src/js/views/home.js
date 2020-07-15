@@ -3,7 +3,10 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-
+import { Layout } from "../layout";
+import { Card } from "../component/card";
+import { Favorite } from "../component/favorite";
+/*
 function convertPeopleIntoHTML(people) {
 	//<p key={planet.name}>{planet.name}</p>;
 	//let data = people;
@@ -25,14 +28,13 @@ function convertPeopleIntoHTML(people) {
 							Learn More
 						</div>
 					</Link>
-					<div className="btn btn-primary d-flex justify-content-between" id={people.url} type="button">
-						☆
-					</div>
+					<Favorite myFavorite={people} />
 				</div>
 			</div>
 		</div>
 	);
 }
+*/
 
 function convertPlanetIntoHTML(planet) {
 	//<p key={planet.name}>{planet.name}</p>;
@@ -67,7 +69,11 @@ export const Home = () => {
 			{store.planets.length == 0 ? /*<p>No planets</p>*/ "" : ""}
 			<div className="w-100 people">
 				{store.planets.length == 0 ? "" : <h1 className="d-flex text-danger p4">Characters</h1>}
-				<div className="d-inline-flex">{store.people.map(convertPeopleIntoHTML)}</div>
+				<div className="d-inline-flex">
+					{store.people.map((event, index) => (
+						<Card key={index} data={event} />
+					))}
+				</div>
 			</div>
 			<div className="w-100 planets">
 				{store.planets.length == 0 ? "" : <h1 className="d-flex text-danger p4">Planets</h1>}

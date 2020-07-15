@@ -10,6 +10,8 @@ import { People } from "./views/people";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Favorite } from "./component/favorite";
+import { Card } from "./component/card";
 
 //create your first component
 export const Layout = () => {
